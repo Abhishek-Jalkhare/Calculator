@@ -1,0 +1,13 @@
+.button{
+    background-color: #4D4D4D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.25s;
+}
+.button:active{
+    transform: scale(.85);
+}
