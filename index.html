@@ -3,37 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <style>
+        .button {
+            transition: all 0.2s ease;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            background: rgba(75, 75, 75, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: rgba(85, 85, 85, 0.9);
+        }
+
+        .operator {
+            background: #FEA019;
+        }
+
+        .operator:active {
+            background: #e89017;
+        }
+
+        .disp {
+            font-family: 'Arial', sans-serif;
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .cal {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            background: rgb(31,31,31);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-[#1a1a1a]">
     <div class="main h-screen w-full flex items-center justify-center">
         <div class="cal w-[350px] rounded-xl overflow-hidden">
-            <div class="disp h-[100px] w-full bg-[rgb(51,51,51)] text-[40px] text-white flex items-center px-[10px]"></div>
-            <div class="keycontainer bg-[rgb(31,31,31)] w-full flex flex-none flex-wrap p-[10px] gap-[10px] justify-center">
-                <div class="button h-[70px] w-[70px] rounded-full bg-[#FEA019]" id="+"></div>
-                <div class="button h-[70px] w-[70px] rounded-full " id="7"></div>
-                <div class="button h-[70px] w-[70px] rounded-full " id="8"></div>
-                <div class="button h-[70px] w-[70px] rounded-full " id="9"></div>
-                <div class="button h-[70px] w-[70px] rounded-full bg-[#FEA019] " id="-"></div>
-                <div class="button h-[70px] w-[70px] rounded-full " id="4"></div>
-                <div class="button h-[70px] w-[70px] rounded-full " id="5" ></div>
-                <div class="button h-[70px] w-[70px] rounded-full " id="6"></div>
-                <div class="button h-[70px] w-[70px] rounded-full bg-[#FEA019]"id="*"></div>
-                <div class="button h-[70px] w-[70px] rounded-full "id="1"> </div>
-                <div class="button h-[70px] w-[70px] rounded-full "id="2"></div>
-                <div class="button h-[70px] w-[70px] rounded-full "id="3"></div>
-                <div class="button h-[70px] w-[70px] rounded-full bg-[#FEA019]"id="/"></div>
-                <div class="button h-[70px] w-[70px] rounded-full "id="0"></div>
-                <div class="button h-[70px] w-[70px] rounded-full "id="."></div>
-                <div class="button h-[70px] w-[70px] rounded-full "id="="></div>
+            <div class="disp h-[100px] w-full bg-[rgb(51,51,51)] text-[40px] text-white flex items-center px-[20px]"></div>
+            <div class="keycontainer bg-[rgb(31,31,31)] w-full flex flex-none flex-wrap p-[15px] gap-[12px] justify-center">
+                <div class="button operator h-[70px] w-[70px] rounded-full" id="+">+</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="7">7</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="8">8</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="9">9</div>
+                <div class="button operator h-[70px] w-[70px] rounded-full" id="-">−</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="4">4</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="5">5</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="6">6</div>
+                <div class="button operator h-[70px] w-[70px] rounded-full" id="*">×</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="1">1</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="2">2</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="3">3</div>
+                <div class="button operator h-[70px] w-[70px] rounded-full" id="/">÷</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id="0">0</div>
+                <div class="button h-[70px] w-[70px] rounded-full" id=".">.</div>
+                <div class="button h-[70px] w-[70px] rounded-full bg-[#4CAF50]" id="=">=</div>
                 
-                <div class="clear w-full text-left px-[10px]"><div class="button h-[70px] w-[70px] rounded-full bg-[#FEA019]" id="c"></div></div>
+                <div class="clear w-full text-left px-[10px]">
+                    <div class="button operator h-[70px] w-[70px] rounded-full" id="c">C</div>
+                </div>
             </div>
         </div>
     </div>
